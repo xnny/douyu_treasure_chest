@@ -1,0 +1,49 @@
+{
+  "name": "抢宝箱",
+  "description" : "协助抢宝箱，捡垃圾",
+  "version": "3.2",
+  "browser_action": {
+    "name": "抢宝箱",
+    "default_icon": "assets/icons/230x0w.png"
+  },
+  "icons": {
+    "16": "assets/icons/230x0w.png",
+    "32": "assets/icons/230x0w.png",
+    "64": "assets/icons/230x0w.png",
+    "128": "assets/icons/690x0w.png"
+  },
+  "background": {
+    "scripts": [
+      "app/scripts/background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts":[
+    {
+      "matches": ["https://*/*"],
+      "js": [
+        "app/scripts/main.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "downloads",
+    "debugger",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>",
+    "cookies",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "manifest_version": 2,
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "MacCtrl+Shift+F"
+      },
+      "description": "打开"
+    }
+  }
+}
