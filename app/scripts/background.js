@@ -7,6 +7,7 @@
 
 // 禁此原生 JS 文件 载入
 let block_urls = [
+    'https://sta-op.douyucdn.cn/nggsys/*',
     'https://sta-op.douyucdn.cn/front-publish/live-master/js/room/playerAside_*.js',
 ];
 
@@ -24,13 +25,3 @@ function blockCallback(details) {
 
 // 屏蔽页面
 chrome.webRequest.onBeforeRequest.addListener(blockCallback, {urls: block_urls,types: ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"]}, ['blocking']);
-/*
-chrome.webRequest.onHeadersReceived.addListener(blockCallback, {
-    urls: block_urls
-}, ["blocking", "responseHeaders"]);
-
-chrome.webRequest.onBeforeSendHeaders.addListener(blockCallback, {
-    urls: block_urls
-}, ["blocking", "requestHeaders"]);
-*/
-
