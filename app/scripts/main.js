@@ -85,8 +85,16 @@ function main() {
 function removeActivity() {
     let t = setInterval(function () {
         if (document.readyState === 'complete') {
-            clearInterval(t);
-            window.document.getElementById('js-room-activity').outerHTML = '';
+            if (window.document.getElementById('js-room-activity')) {
+                window.document.getElementById('js-room-activity').outerHTML = '';
+            }
+            if (window.document.getElementsByClassName('Bottom-ad').length > 0) {
+                clearInterval(t);
+                window.document.getElementsByClassName('Bottom-ad')[0].outerHTML = '';
+            }
+            if (window.document.getElementsByClassName('Title-ad').length > 0) {
+                window.document.getElementsByClassName('Title-ad')[0].outerHTML = '';
+            }
         }
         }, 1000
     );
