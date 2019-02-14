@@ -79,8 +79,23 @@ function main() {
     );
 }
 
+/**
+ * 删除活动
+ */
+function removeActivity() {
+    let t = setInterval(function () {
+        if (document.readyState === 'complete') {
+            clearInterval(t);
+            window.document.getElementById('js-room-activity').outerHTML = '';
+        }
+        }, 1000
+    );
+
+}
+
 console.log('++' + document.location.hostname);
 if (window.location.hostname === 'www.douyu.com') {
     main();
+    removeActivity();
 }
 
