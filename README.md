@@ -9,3 +9,4 @@
  https://www.douyu.com/member/task/redPacketReceive
  
  
+*props.treasureData.bindStatus*
