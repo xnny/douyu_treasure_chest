@@ -63,7 +63,10 @@ function sendBarrage(countdown_time) {
         barrage_msg = getRandomMSG();
     }
     else {
-        barrage_msg = barrage_obj[barrage_index].innerText;
+        let b_len = document.getElementsByClassName('Barrage-content').length;
+        let b_index = b_len - barrage_index - 1;
+        console.log('b_index:' + b_index);
+        barrage_msg = document.getElementsByClassName('Barrage-content')[b_index].innerText;
     }
 
     document.getElementsByClassName('ChatSend-txt')[0].value = barrage_msg;
@@ -101,7 +104,6 @@ function removeActivity() {
 
 }
 
-console.log('++' + document.location.hostname);
 if (window.location.hostname === 'www.douyu.com') {
     main();
     removeActivity();
