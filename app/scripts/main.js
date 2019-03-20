@@ -70,7 +70,15 @@ function sendBarrage(countdown_time) {
     }
 
     document.getElementsByClassName('ChatSend-txt')[0].value = barrage_msg;
-    document.getElementsByClassName('ChatSend-button')[0].click()
+    document.getElementsByClassName('ChatSend-button')[0].click();
+    let time_id = setInterval(function () {
+        console.log('geetest_radar_tip_content');
+        if (document.getElementsByClassName('geetest_radar_tip_content').length > 0) {
+            console.log('clearInterval');
+            document.getElementsByClassName('geetest_radar_tip_content')[0].click();
+            clearInterval(time_id);
+        }
+    }, 200);
 }
 
 
@@ -78,7 +86,7 @@ function sendBarrage(countdown_time) {
 function main() {
     setInterval(
         treasureChest,
-        500
+        400
     );
 }
 
